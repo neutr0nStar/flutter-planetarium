@@ -94,17 +94,17 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(
                               height: 20,
                             ),
-                        Row(
-                                children: [
-                                  Text(
-                                    "Swipe to explore",
-                                    style: TextStyle(
-                                        fontSize: 24, color: Colors.grey[500]),
-                                  ),
-                                  Icon(Icons.arrow_forward,
-                                      color: Colors.grey[500])
-                                ],
-                              ),
+                            Row(
+                              children: [
+                                Text(
+                                  "Swipe to explore",
+                                  style: TextStyle(
+                                      fontSize: 24, color: Colors.grey[500]),
+                                ),
+                                Icon(Icons.arrow_forward,
+                                    color: Colors.grey[500])
+                              ],
+                            ),
                           ],
                         ),
                       ),
