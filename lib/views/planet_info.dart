@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planetarium/models/planet.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PlanetInfo extends StatelessWidget {
   final Planet planet;
@@ -34,12 +35,35 @@ class PlanetInfo extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 20, color: Colors.grey[500], height: 1.4)),
               ),
+              SizedBox(
+                height: 20,
+              ),
+              TextButton(
+                  onPressed: () async {
+                    await canLaunch(planet.arURI ?? "")
+                        ? await launch(planet.arURI ?? "")
+                        : ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            content: Text("Couldn't open in AR",
+                                style: TextStyle(color: Colors.white)),
+                            backgroundColor: Colors.grey[800],
+                            padding: EdgeInsets.symmetric(
+                                vertical: 5, horizontal: 10),
+                          ));
+                  },
+                  child: Text(
+                    "Explore in AR",
+                    style: TextStyle(fontSize: 20),
+                  )),
+              SizedBox(
+                height: 20,
+              )
             ],
           ),
           Positioned(
             top: 10,
             left: 5,
-            child: GestureDetector(
+            child: InkWell(
+                borderRadius: BorderRadius.all(Radius.circular(80)),
                 onTap: () {
                   Navigator.of(context).pop();
                 },
