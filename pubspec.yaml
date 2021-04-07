@@ -24,7 +24,6 @@ dependencies:
   flutter:
     sdk: flutter
   url_launcher: ^6.0.3
-  coast: ^2.0.1
 
 
   # The following adds the Cupertino Icons font to your application.

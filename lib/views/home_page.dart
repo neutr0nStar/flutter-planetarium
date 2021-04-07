@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:planetarium/models/planet.dart';
+import 'package:planetarium/views/asteroids_info.dart';
+import 'package:planetarium/views/moons_info.dart';
 import 'package:planetarium/views/planet_info.dart';
+import 'package:planetarium/views/sun_info.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -119,12 +122,124 @@ class _HomePageState extends State<HomePage> {
               );
             } else if (index == _planets.length + 1) {
               return Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        fit: BoxFit.cover,
-                        image: AssetImage("images/background.jpeg"))),
-                child: Center(child: Text("More")),
-              );
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage("images/background.jpeg"))),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 80,
+                        left: 20,
+                        child: Transform.translate(
+                          offset: Offset(-(_pageOffset - index) * 200, 0),
+                          child: Text(
+                            "More",
+                            style: TextStyle(fontSize: 80),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                          top: 200,
+                          left: 20,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Transform.translate(
+                                offset: Offset(-(_pageOffset - index) * 500, 0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => SunInfo()));
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Hero(
+                                        tag: "sun",
+                                        child: Image(
+                                            height: 150,
+                                            image: AssetImage(
+                                                "images/sun-transparent.png")),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                        "Sun",
+                                        style: TextStyle(fontSize: 32),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Transform.translate(
+                                offset: Offset(-(_pageOffset - index) * 500, 0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) => MoonsInfo()));
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Hero(
+                                        tag: "moon",
+                                        child: Image(
+                                            height: 150,
+                                            image: AssetImage(
+                                                "images/moon-transparent.png")),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                        "Moons",
+                                        style: TextStyle(fontSize: 32),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              Transform.translate(
+                                offset: Offset(-(_pageOffset - index) * 500, 0),
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                AsteroidsInfo()));
+                                  },
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Hero(
+                                        tag: "asteroid",
+                                        child: Image(
+                                            height: 150,
+                                            image: AssetImage(
+                                                "images/asteroid-transparent.png")),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      Text(
+                                        "Asteroids",
+                                        style: TextStyle(fontSize: 32),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )),
+                    ],
+                  ));
             } else {
               return Container(
                   decoration: BoxDecoration(
@@ -153,7 +268,7 @@ class _HomePageState extends State<HomePage> {
                                 fontSize: 20, color: Colors.grey[500]),
                           )),
                       Positioned(
-                          bottom: 20,
+                          bottom: 10,
                           right: -40,
                           child: Transform.translate(
                             offset: Offset(-(_pageOffset - index) * 500, 0),

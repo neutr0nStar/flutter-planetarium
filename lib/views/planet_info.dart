@@ -70,7 +70,7 @@ class PlanetInfo extends StatelessWidget {
                 child: Icon(
                   Icons.close,
                   size: 40,
-                  color: Colors.grey[300],
+                  color: Colors.grey[400],
                 )),
           )
         ]),
