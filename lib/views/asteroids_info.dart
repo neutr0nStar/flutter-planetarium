@@ -17,7 +17,7 @@ class AsteroidsInfo extends StatelessWidget {
               ),
               Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
-                  child: Text("Asteroids", style: TextStyle(fontSize: 80))),
+                  child: Text("Asteroids", style: TextStyle(fontSize: 70))),
               SizedBox(
                 height: 20,
               ),

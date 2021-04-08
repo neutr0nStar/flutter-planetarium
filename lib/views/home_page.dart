@@ -129,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                   child: Stack(
                     children: [
                       Positioned(
-                        top: 80,
+                        top: 60,
                         left: 20,
                         child: Transform.translate(
                           offset: Offset(-(_pageOffset - index) * 200, 0),
@@ -139,15 +139,115 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
+                      // Positioned(
+                      //     top: 200,
+                      //     left: 20,
+                      //     child: Column(
+                      //       crossAxisAlignment: CrossAxisAlignment.start,
+                      //       children: [
+                      //         Transform.translate(
+                      //           offset: Offset(-(_pageOffset - index) * 500, 0),
+                      //           child: GestureDetector(
+                      //             onTap: () {
+                      //               Navigator.of(context).push(
+                      //                   MaterialPageRoute(
+                      //                       builder: (context) => SunInfo()));
+                      //             },
+                      //             child: Row(
+                      //               mainAxisAlignment:
+                      //                   MainAxisAlignment.spaceBetween,
+                      //               children: [
+                      //                 Hero(
+                      //                   tag: "sun",
+                      //                   child: Image(
+                      //                       height: 150,
+                      //                       image: AssetImage(
+                      //                           "images/sun-transparent.png")),
+                      //                 ),
+                      //                 SizedBox(
+                      //                   width: 10,
+                      //                 ),
+                      //                 Text(
+                      //                   "Sun",
+                      //                   style: TextStyle(fontSize: 32),
+                      //                 ),
+                      //               ],
+                      //             ),
+                      //           ),
+                      //         ),
+                      //         Transform.translate(
+                      //           offset: Offset(-(_pageOffset - index) * 500, 0),
+                      //           child: GestureDetector(
+                      //             onTap: () {
+                      //               Navigator.of(context).push(
+                      //                   MaterialPageRoute(
+                      //                       builder: (context) => MoonsInfo()));
+                      //             },
+                      //             child: Row(
+                      //               mainAxisAlignment:
+                      //                   MainAxisAlignment.spaceBetween,
+                      //               children: [
+                      //                 Hero(
+                      //                   tag: "moon",
+                      //                   child: Image(
+                      //                       height: 150,
+                      //                       image: AssetImage(
+                      //                           "images/moon-transparent.png")),
+                      //                 ),
+                      //                 SizedBox(
+                      //                   width: 10,
+                      //                 ),
+                      //                 Text(
+                      //                   "Moons",
+                      //                   style: TextStyle(fontSize: 32),
+                      //                 ),
+                      //               ],
+                      //             ),
+                      //           ),
+                      //         ),
+                      //         Transform.translate(
+                      //           offset: Offset(-(_pageOffset - index) * 500, 0),
+                      //           child: GestureDetector(
+                      //             onTap: () {
+                      //               Navigator.of(context).push(
+                      //                   MaterialPageRoute(
+                      //                       builder: (context) =>
+                      //                           AsteroidsInfo()));
+                      //             },
+                      //             child: Row(
+                      //               mainAxisAlignment:
+                      //                   MainAxisAlignment.spaceBetween,
+                      //               children: [
+                      //                 Hero(
+                      //                   tag: "asteroid",
+                      //                   child: Image(
+                      //                       height: 150,
+                      //                       image: AssetImage(
+                      //                           "images/asteroid-transparent.png")),
+                      //                 ),
+                      //                 SizedBox(
+                      //                   width: 10,
+                      //                 ),
+                      //                 Text(
+                      //                   "Asteroids",
+                      //                   style: TextStyle(fontSize: 32),
+                      //                 ),
+                      //               ],
+                      //             ),
+                      //           ),
+                      //         ),
+                      //       ],
+                      //     )),
                       Positioned(
-                          top: 200,
-                          left: 20,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Transform.translate(
-                                offset: Offset(-(_pageOffset - index) * 500, 0),
-                                child: GestureDetector(
+                          top: 160,
+                          bottom: 0,
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            height: double.infinity,
+                            width: MediaQuery.of(context).size.width,
+                            child: Column(
+                              children: [
+                                GestureDetector(
                                   onTap: () {
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
@@ -157,27 +257,27 @@ class _HomePageState extends State<HomePage> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Hero(
-                                        tag: "sun",
-                                        child: Image(
-                                            height: 150,
-                                            image: AssetImage(
-                                                "images/sun-transparent.png")),
-                                      ),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
                                       Text(
                                         "Sun",
-                                        style: TextStyle(fontSize: 32),
+                                        style: TextStyle(
+                                            fontSize: 40,
+                                            color: Colors.grey[300]),
                                       ),
+                                      Transform.translate(
+                                        offset: Offset(
+                                            -(_pageOffset - index) * 500, 0),
+                                        child: Hero(
+                                          tag: "sun",
+                                          child: Image(
+                                              height: 150,
+                                              image: AssetImage(
+                                                  "images/sun-transparent.png")),
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
-                              ),
-                              Transform.translate(
-                                offset: Offset(-(_pageOffset - index) * 500, 0),
-                                child: GestureDetector(
+                                GestureDetector(
                                   onTap: () {
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
@@ -187,27 +287,27 @@ class _HomePageState extends State<HomePage> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Hero(
-                                        tag: "moon",
-                                        child: Image(
-                                            height: 150,
-                                            image: AssetImage(
-                                                "images/moon-transparent.png")),
-                                      ),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
                                       Text(
                                         "Moons",
-                                        style: TextStyle(fontSize: 32),
+                                        style: TextStyle(
+                                            fontSize: 40,
+                                            color: Colors.grey[300]),
                                       ),
+                                      Transform.translate(
+                                        offset: Offset(
+                                            -(_pageOffset - index) * 500, 0),
+                                        child: Hero(
+                                          tag: "moon",
+                                          child: Image(
+                                              height: 150,
+                                              image: AssetImage(
+                                                  "images/moon-transparent.png")),
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
-                              ),
-                              Transform.translate(
-                                offset: Offset(-(_pageOffset - index) * 500, 0),
-                                child: GestureDetector(
+                                GestureDetector(
                                   onTap: () {
                                     Navigator.of(context).push(
                                         MaterialPageRoute(
@@ -218,25 +318,28 @@ class _HomePageState extends State<HomePage> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Hero(
-                                        tag: "asteroid",
-                                        child: Image(
-                                            height: 150,
-                                            image: AssetImage(
-                                                "images/asteroid-transparent.png")),
-                                      ),
-                                      SizedBox(
-                                        width: 10,
-                                      ),
                                       Text(
                                         "Asteroids",
-                                        style: TextStyle(fontSize: 32),
+                                        style: TextStyle(
+                                            fontSize: 40,
+                                            color: Colors.grey[300]),
                                       ),
+                                      Transform.translate(
+                                        offset: Offset(
+                                            -(_pageOffset - index) * 500, 0),
+                                        child: Hero(
+                                          tag: "asteroid",
+                                          child: Image(
+                                              height: 150,
+                                              image: AssetImage(
+                                                  "images/asteroid-transparent.png")),
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           )),
                     ],
                   ));
@@ -249,7 +352,7 @@ class _HomePageState extends State<HomePage> {
                   child: Stack(
                     children: [
                       Positioned(
-                        top: 80,
+                        top: 60,
                         left: 20,
                         child: Transform.translate(
                           offset: Offset(-(_pageOffset - index) * 200, 0),
@@ -260,7 +363,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Positioned(
-                          top: 180,
+                          top: 160,
                           left: 20,
                           child: Text(
                             "Tap on the planet to know more",
