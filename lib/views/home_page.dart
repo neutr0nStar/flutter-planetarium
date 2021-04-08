@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:planetarium/models/planet.dart';
+import 'package:planetarium/views/age_calculator.dart';
 import 'package:planetarium/views/asteroids_info.dart';
 import 'package:planetarium/views/moons_info.dart';
 import 'package:planetarium/views/planet_info.dart';
@@ -90,33 +91,73 @@ class _HomePageState extends State<HomePage> {
                     image: DecorationImage(
                         fit: BoxFit.cover,
                         image: AssetImage("images/background.jpeg"))),
-                child: Center(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Welcome to planetarium!",
-                          style: TextStyle(
-                              fontSize: 48, fontWeight: FontWeight.w900),
+                child: SafeArea(
+                  child: Stack(
+                    children: [
+                      Positioned(
+                          top: 10,
+                          left: 2,
+                          child: IconButton(
+                            iconSize: 32,
+                            icon: Icon(Icons.menu),
+                            onPressed: () {
+                              showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) {
+                                    return Container(
+                                      child: TextButton(
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      AgeCalculator()));
+                                        },
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            "Show age calculator",
+                                            style: TextStyle(
+                                                fontSize: 24,
+                                                color: Colors.white),
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  });
+                            },
+                          )),
+                      Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(20.0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Welcome to planetarium!",
+                                style: TextStyle(
+                                    fontSize: 48, fontWeight: FontWeight.w900),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Row(
+                                children: [
+                                  Text(
+                                    "Swipe to explore",
+                                    style: TextStyle(
+                                        fontSize: 24, color: Colors.grey[500]),
+                                  ),
+                                  Icon(Icons.arrow_forward,
+                                      color: Colors.grey[500])
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          children: [
-                            Text(
-                              "Swipe to explore",
-                              style: TextStyle(
-                                  fontSize: 24, color: Colors.grey[500]),
-                            ),
-                            Icon(Icons.arrow_forward, color: Colors.grey[500])
-                          ],
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               );
@@ -139,105 +180,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      // Positioned(
-                      //     top: 200,
-                      //     left: 20,
-                      //     child: Column(
-                      //       crossAxisAlignment: CrossAxisAlignment.start,
-                      //       children: [
-                      //         Transform.translate(
-                      //           offset: Offset(-(_pageOffset - index) * 500, 0),
-                      //           child: GestureDetector(
-                      //             onTap: () {
-                      //               Navigator.of(context).push(
-                      //                   MaterialPageRoute(
-                      //                       builder: (context) => SunInfo()));
-                      //             },
-                      //             child: Row(
-                      //               mainAxisAlignment:
-                      //                   MainAxisAlignment.spaceBetween,
-                      //               children: [
-                      //                 Hero(
-                      //                   tag: "sun",
-                      //                   child: Image(
-                      //                       height: 150,
-                      //                       image: AssetImage(
-                      //                           "images/sun-transparent.png")),
-                      //                 ),
-                      //                 SizedBox(
-                      //                   width: 10,
-                      //                 ),
-                      //                 Text(
-                      //                   "Sun",
-                      //                   style: TextStyle(fontSize: 32),
-                      //                 ),
-                      //               ],
-                      //             ),
-                      //           ),
-                      //         ),
-                      //         Transform.translate(
-                      //           offset: Offset(-(_pageOffset - index) * 500, 0),
-                      //           child: GestureDetector(
-                      //             onTap: () {
-                      //               Navigator.of(context).push(
-                      //                   MaterialPageRoute(
-                      //                       builder: (context) => MoonsInfo()));
-                      //             },
-                      //             child: Row(
-                      //               mainAxisAlignment:
-                      //                   MainAxisAlignment.spaceBetween,
-                      //               children: [
-                      //                 Hero(
-                      //                   tag: "moon",
-                      //                   child: Image(
-                      //                       height: 150,
-                      //                       image: AssetImage(
-                      //                           "images/moon-transparent.png")),
-                      //                 ),
-                      //                 SizedBox(
-                      //                   width: 10,
-                      //                 ),
-                      //                 Text(
-                      //                   "Moons",
-                      //                   style: TextStyle(fontSize: 32),
-                      //                 ),
-                      //               ],
-                      //             ),
-                      //           ),
-                      //         ),
-                      //         Transform.translate(
-                      //           offset: Offset(-(_pageOffset - index) * 500, 0),
-                      //           child: GestureDetector(
-                      //             onTap: () {
-                      //               Navigator.of(context).push(
-                      //                   MaterialPageRoute(
-                      //                       builder: (context) =>
-                      //                           AsteroidsInfo()));
-                      //             },
-                      //             child: Row(
-                      //               mainAxisAlignment:
-                      //                   MainAxisAlignment.spaceBetween,
-                      //               children: [
-                      //                 Hero(
-                      //                   tag: "asteroid",
-                      //                   child: Image(
-                      //                       height: 150,
-                      //                       image: AssetImage(
-                      //                           "images/asteroid-transparent.png")),
-                      //                 ),
-                      //                 SizedBox(
-                      //                   width: 10,
-                      //                 ),
-                      //                 Text(
-                      //                   "Asteroids",
-                      //                   style: TextStyle(fontSize: 32),
-                      //                 ),
-                      //               ],
-                      //             ),
-                      //           ),
-                      //         ),
-                      //       ],
-                      //     )),
                       Positioned(
                           top: 160,
                           bottom: 0,
