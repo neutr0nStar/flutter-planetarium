@@ -21,31 +21,25 @@ class _AgeCalculatorState extends State<AgeCalculator> {
         padding: EdgeInsets.all(10),
         child: Column(
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.only(right: 8),
-                    child: TextField(
-                      onChanged: (value) {
-                        setState(() {
-                          try {
-                            _age = int.parse(value ?? 0);
-                          } catch (e) {
-                            print("error");
-                            _age = 0;
-                          }
-                        });
-                      },
-                      controller: _controller,
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          border: OutlineInputBorder().copyWith(),
-                          labelText: "Enter you age in earth years"),
-                    ),
-                  ),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(right: 8),
+              child: TextField(
+                onChanged: (value) {
+                  setState(() {
+                    try {
+                      _age = int.parse(value ?? 0);
+                    } catch (e) {
+                      print("error");
+                      _age = 0;
+                    }
+                  });
+                },
+                controller: _controller,
+                keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+                    border: OutlineInputBorder().copyWith(),
+                    labelText: "Enter you age in earth years"),
+              ),
             ),
             SizedBox(
               height: 20,
