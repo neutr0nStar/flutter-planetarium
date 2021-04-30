@@ -1,4 +1,4 @@
-# planetarium
+# Planetarium
 
 **Planetarium** is an app that showcases the 8 planets of our solar system along with sun, moons and asteroids. This app uses beautiful animations provided by **flutter sdk**. This app uses **Echo AR** to give augmented reality experience through which users can explore all the 8 planets in AR.
 
